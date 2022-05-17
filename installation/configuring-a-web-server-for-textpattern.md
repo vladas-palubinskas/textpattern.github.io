@@ -42,7 +42,7 @@ Textpattern runs smoothly on a human-friendly Hiawatha web-server. Only a few of
 VirtualHost {
 	Hostname = www.my-website.com
 	StartFile = index.php
-	UseFastCGI = PHP7
+	UseFastCGI = PHP8
 	UseToolkit = textpattern
 	WebsiteRoot = /var/www/my-website/public
 	AccessLogfile = /var/log/hiawatha/my-website/access.log
@@ -52,7 +52,7 @@ VirtualHost {
 }
 ~~~
 
-Replace my-website.com to your own domain name and correct the path where needed. Type PHP5 instead of PHP7 if your host still does not support PHP7. Uncomment `TLSsertFile` line if you want to support secure connection. To forbid open access and switch HTTP to HTTPS only, uncomment also the directive `RequireTLS = yes`. Hiawatha has support for SNI, which allows us to serve multiple TLS websites via one IP address. Hiawatha also comes with a script to easily obtain and to automate renewing free Let's Encrypt certificates, according to your virtual host configuration.
+Replace my-website.com to your own domain name and correct the path where needed. Type PHP7 instead of PHP8 if your host or some applications still does not support PHP8. Uncomment `TLSsertFile` line if you want to support secure connection. To forbid open access and force encrypted HTTPS only (HSTS), uncomment also the directive `RequireTLS = yes`. Hiawatha has support for SNI, which allows us to serve multiple TLS websites via one IP address. Hiawatha also comes with a script to easily obtain and to automate renewing free Let's Encrypt certificates, according to your virtual host configuration.
 
 Hiawatha does not need `.htaccess` file. If you wish clean semantic URLs, paste instead the following [URL Toolkit](//www.hiawatha-webserver.org/howto/url_toolkit) for [Textpattern](//www.hiawatha-webserver.org/howto/url_rewrite_rules) in the beginning of our include file for the virtual host or in the general `hiawatha.conf` file itself:
 
